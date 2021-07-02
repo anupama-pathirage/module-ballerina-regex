@@ -48,3 +48,10 @@ isolated function testSplit() {
     string[] actualvalue = split(testStr, ",,");
     test:assertEquals(actualvalue, ["amal", "kamal", "nimal", "sunimal,"], msg = "Array values are not equal");
 }
+
+@test:Config{}
+isolated function testSplitWithNewLine() {
+    string testStr = "amal\nkamal\nnimal\nsunimal\n";
+    string[] actualvalue = split(testStr, "\n");
+    test:assertEquals(actualvalue, ["amal", "kamal", "nimal", "sunimal"], msg = "Array values are not equal");
+}
